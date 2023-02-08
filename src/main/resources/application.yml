@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/garage?useSSL=false
+    username: root
+    password: ""
+    validationQuery: SELECT 1
