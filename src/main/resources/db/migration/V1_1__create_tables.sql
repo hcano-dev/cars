@@ -16,7 +16,7 @@ CREATE TABLE `price` (
     `id` INT AUTO_INCREMENT PRIMARY KEY,
     `init_date` DATETIME NOT NULL,
     `end_date` DATETIME NOT NULL,
-    `price` INT NOT NULL,
+    `amount` INT NOT NULL,
     `created` DATETIME NOT NULL,
     `modified` DATETIME NOT NULL
 );
