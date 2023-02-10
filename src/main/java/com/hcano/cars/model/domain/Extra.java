@@ -7,6 +7,7 @@ import lombok.Setter;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.util.Date;
 import java.util.Objects;
 
 @Getter
@@ -14,6 +15,15 @@ import java.util.Objects;
 @Entity
 @Table
 public class Extra extends BaseEntity {
+    public Extra() {
+        super(null, null, null);
+    }
+
+    public Extra(Integer id, Date created, Date modified, String name) {
+        super(id, created, modified);
+        this.name = name;
+    }
+
     @Column(nullable = false, length = 36)
     private String name;
 

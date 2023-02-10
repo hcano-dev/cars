@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -14,6 +15,18 @@ import java.util.Objects;
 @Entity
 @Table
 public class Car extends BaseEntity {
+    public Car() {
+        super(null, null, null);
+    }
+    public Car(Integer id, String model, Brand brand, String color, Integer cc, Integer hp, Date created, Date modified) {
+        super(id, created, modified);
+        this.model = model;
+        this.brand = brand;
+        this.color = color;
+        this.cc = cc;
+        this.hp = hp;
+    }
+
     @Column(nullable = false, length = 36)
     private String model;
 

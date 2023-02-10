@@ -14,6 +14,17 @@ import java.util.Objects;
 @Entity
 @Table
 public class Price extends BaseEntity {
+    public Price() {
+        super(null, null, null);
+    }
+
+    public Price(Integer id, Date created, Date modified, Date initDate, Date endDate, BigInteger amount) {
+        super(id, created, modified);
+        this.initDate = initDate;
+        this.endDate = endDate;
+        this.amount = amount;
+    }
+
     @Column(name = "init_date", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date initDate;

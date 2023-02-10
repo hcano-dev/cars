@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -14,6 +15,16 @@ import java.util.Objects;
 @Entity
 @Table
 public class Brand extends BaseEntity {
+    public Brand() {
+        super(null, null, null);
+    }
+
+    public Brand(Integer id, String name, Date created, Date modified) {
+        super(id, created, modified);
+
+        this.name = name;
+    }
+
     @Column(nullable = false, length = 36)
     private String name;
 
