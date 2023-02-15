@@ -10,6 +10,8 @@ import javax.validation.constraints.NotBlank;
 @Getter
 @Setter
 public class BrandEditPayload implements Payload {
+    public BrandEditPayload() {}
+
     public BrandEditPayload(String name) {
         this.name = name;
     }
