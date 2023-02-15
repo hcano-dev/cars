@@ -1,6 +1,7 @@
 package com.hcano.cars.controller;
 
 import com.hcano.cars.dto.extra.ExtraEditPayload;
+import com.hcano.cars.dto.extra.ExtraPayload;
 import com.hcano.cars.mapper.ExtraMapper;
 import com.hcano.cars.service.ExtraService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,12 @@ public class ExtraController {
 
     @Autowired
     ExtraMapper mapper;
+
+    @GetMapping(ExtraController.URL_ID)
+    @ResponseStatus(HttpStatus.OK)
+    public ExtraPayload getExtraById(@PathVariable UUID id) {
+        return this.mapper.toDTO(this.service.findById(id.toString()));
+    }
 
     @PutMapping(ExtraController.URL_ID)
     @ResponseStatus(HttpStatus.CREATED)
