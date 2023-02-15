@@ -16,6 +16,17 @@ import java.util.Objects;
 @Getter
 @Setter
 public class CarPayload extends PayloadID {
+    public CarPayload(String id, String model, BrandPayload brand, String color, Integer cc, Integer hp, List<PricePayload> prices, List<ExtraPayload> extras) {
+        super(id);
+        this.model = model;
+        this.brand = brand;
+        this.color = color;
+        this.cc = cc;
+        this.hp = hp;
+        this.prices = prices;
+        this.extras = extras;
+    }
+
     @NotBlank
     @JsonProperty("model")
     private String model;

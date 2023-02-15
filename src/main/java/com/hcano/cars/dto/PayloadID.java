@@ -11,4 +11,8 @@ public class PayloadID implements Payload {
     @UUID
     @JsonProperty("id")
     protected String id;
+
+    public PayloadID(String id) {
+        this.id = id;
+    }
 }

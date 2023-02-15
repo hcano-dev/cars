@@ -15,6 +15,16 @@ import java.util.List;
 @Getter
 @Setter
 public class CarEditPayload implements Payload {
+    public CarEditPayload(String model, BrandPayload brand, String color, Integer cc, Integer hp, List<PricePayload> prices, List<ExtraPayload> extras) {
+        this.model = model;
+        this.brand = brand;
+        this.color = color;
+        this.cc = cc;
+        this.hp = hp;
+        this.prices = prices;
+        this.extras = extras;
+    }
+
     @NotBlank
     @JsonProperty("model")
     private String model;

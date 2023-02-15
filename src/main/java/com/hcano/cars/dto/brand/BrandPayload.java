@@ -12,6 +12,13 @@ import java.util.Date;
 @Getter
 @Setter
 public class BrandPayload extends PayloadID {
+    public BrandPayload(String id, String name, Date created, Date modified) {
+        super(id);
+        this.name = name;
+        this.created = created;
+        this.modified = modified;
+    }
+
     @NotBlank
     @JsonProperty("name")
     private String name;

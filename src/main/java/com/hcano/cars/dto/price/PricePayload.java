@@ -13,6 +13,15 @@ import java.util.Date;
 @Getter
 @Setter
 public class PricePayload extends PayloadID {
+    public PricePayload(String id, BigInteger price, Date initDate, Date endDate, Date created, Date modified) {
+        super(id);
+        this.price = price;
+        this.initDate = initDate;
+        this.endDate = endDate;
+        this.created = created;
+        this.modified = modified;
+    }
+
     @NotNull
     @JsonProperty("price")
     private BigInteger price;
