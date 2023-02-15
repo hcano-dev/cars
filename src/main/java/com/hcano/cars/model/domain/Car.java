@@ -1,6 +1,6 @@
 package com.hcano.cars.model.domain;
 
-import com.hcano.cars.utils.EqualsUtils;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,7 +18,7 @@ public class Car extends BaseEntity {
     public Car() {
         super(null, null, null);
     }
-    public Car(Integer id, String model, Brand brand, String color, Integer cc, Integer hp, Date created, Date modified) {
+    public Car(String id, String model, Brand brand, String color, Integer cc, Integer hp, Date created, Date modified) {
         super(id, created, modified);
         this.model = model;
         this.brand = brand;
@@ -31,6 +31,8 @@ public class Car extends BaseEntity {
     private String model;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "brand_id", referencedColumnName = "id", nullable = false)
+    @JsonIgnoreProperties({ "cars" })
     private Brand brand = new Brand();
 
     @Column(nullable = false, length = 36)
@@ -60,7 +62,10 @@ public class Car extends BaseEntity {
 
     @Override
     public boolean equals(Object o) {
-        return EqualsUtils.isEquals(this, o);
+        if (this == o) return true;
+        if (!(o instanceof Car)) return false;
+        Car car = (Car) o;
+        return id.equals(car.id);
     }
 
     @Override

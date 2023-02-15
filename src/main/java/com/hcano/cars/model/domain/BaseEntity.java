@@ -12,16 +12,15 @@ import java.util.Date;
 @Setter
 @MappedSuperclass
 public class BaseEntity implements Serializable {
-    public BaseEntity(Integer id, Date created, Date modified) {
+    public BaseEntity(String id, Date created, Date modified) {
         this.id = id;
         this.created = created;
         this.modified = modified;
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false, nullable = false)
-    protected Integer id;
+    protected String id;
 
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)

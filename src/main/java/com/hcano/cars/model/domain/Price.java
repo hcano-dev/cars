@@ -18,7 +18,7 @@ public class Price extends BaseEntity {
         super(null, null, null);
     }
 
-    public Price(Integer id, Date created, Date modified, Date initDate, Date endDate, BigInteger amount) {
+    public Price(String id, Date created, Date modified, Date initDate, Date endDate, BigInteger amount) {
         super(id, created, modified);
         this.initDate = initDate;
         this.endDate = endDate;

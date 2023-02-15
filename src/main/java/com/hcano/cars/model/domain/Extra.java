@@ -19,7 +19,7 @@ public class Extra extends BaseEntity {
         super(null, null, null);
     }
 
-    public Extra(Integer id, Date created, Date modified, String name) {
+    public Extra(String id, Date created, Date modified, String name) {
         super(id, created, modified);
         this.name = name;
     }

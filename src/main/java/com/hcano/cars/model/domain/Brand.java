@@ -1,6 +1,5 @@
 package com.hcano.cars.model.domain;
 
-import com.hcano.cars.utils.EqualsUtils;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,7 +18,7 @@ public class Brand extends BaseEntity {
         super(null, null, null);
     }
 
-    public Brand(Integer id, String name, Date created, Date modified) {
+    public Brand(String id, String name, Date created, Date modified) {
         super(id, created, modified);
 
         this.name = name;
@@ -37,7 +36,10 @@ public class Brand extends BaseEntity {
 
     @Override
     public boolean equals(Object o) {
-        return EqualsUtils.isEquals(this, o);
+        if (this == o) return true;
+        if (!(o instanceof Brand)) return false;
+        Brand brand = (Brand) o;
+        return id.equals(brand.id);
     }
 
     @Override
