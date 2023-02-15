@@ -1,4 +1,4 @@
-package com.hcano.cars.domain;
+package com.hcano.cars.dto;
 
 import com.hcano.cars.domain.shared.WordMother;
 import com.hcano.cars.dto.extra.ExtraEditPayload;
