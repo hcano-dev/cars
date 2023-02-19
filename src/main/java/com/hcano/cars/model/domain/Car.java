@@ -35,7 +35,7 @@ public class Car extends BaseEntity {
     @JsonIgnoreProperties({ "cars" })
     private Brand brand = new Brand();
 
-    @Column(nullable = false, length = 36)
+    @Column(nullable = false, length = 40)
     private String color;
 
     @Column(nullable = false)
