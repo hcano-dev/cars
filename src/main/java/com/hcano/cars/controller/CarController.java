@@ -6,7 +6,6 @@ import com.hcano.cars.mapper.CarMapper;
 import com.hcano.cars.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,14 +24,26 @@ public class CarController {
     CarMapper mapper;
 
     @GetMapping
+    @ResponseStatus(HttpStatus.OK)
     public List<CarPayload> getAllCars() {
-        return mapper.toCarsPayload(service.getAll());
+        return this.mapper.toCarsPayload(this.service.getAll());
+    }
+
+    @GetMapping(URL_ID)
+    @ResponseStatus(HttpStatus.OK)
+    public CarPayload getCarById(@PathVariable UUID id) {
+        return this.mapper.toDTO(this.service.findById(id.toString()));
     }
 
     @PutMapping(URL_ID)
-    public ResponseEntity<String> createCar(@PathVariable UUID id, @RequestBody CarEditPayload request) {
-        service.create(id.toString(), mapper.toEntity(request));
+    @ResponseStatus(HttpStatus.CREATED)
+    public void createCar(@PathVariable UUID id, @RequestBody CarEditPayload request) {
+        this.service.create(id.toString(), this.mapper.toEntity(request));
+    }
 
-        return new ResponseEntity<>(HttpStatus.CREATED);
+    @DeleteMapping(URL_ID)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteCar(@PathVariable UUID id) {
+        this.service.delete(id.toString());
     }
 }
