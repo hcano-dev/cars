@@ -24,7 +24,7 @@ public class Brand extends BaseEntity {
         this.name = name;
     }
 
-    @Column(nullable = false, length = 36)
+    @Column(nullable = false, length = 40)
     private String name;
 
     @OneToMany(mappedBy = "brand", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -44,6 +44,6 @@ public class Brand extends BaseEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, created, modified);
+        return Objects.hash(id);
     }
 }

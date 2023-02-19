@@ -27,7 +27,7 @@ public class Car extends BaseEntity {
         this.hp = hp;
     }
 
-    @Column(nullable = false, length = 36)
+    @Column(nullable = false, length = 40)
     private String model;
 
     @ManyToOne(fetch = FetchType.LAZY)

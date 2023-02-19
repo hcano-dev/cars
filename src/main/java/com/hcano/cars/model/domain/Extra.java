@@ -24,7 +24,7 @@ public class Extra extends BaseEntity {
         this.name = name;
     }
 
-    @Column(nullable = false, length = 36)
+    @Column(nullable = false, length = 40)
     private String name;
 
     @Override
