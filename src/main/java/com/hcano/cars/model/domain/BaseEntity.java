@@ -32,7 +32,10 @@ public class BaseEntity implements Serializable {
 
     @PrePersist
     public void prePersist() {
-        created = DateUtils.now();
+        if (created == null) {
+            created = DateUtils.now();
+        }
+
         modified = DateUtils.now();
     }
 }
