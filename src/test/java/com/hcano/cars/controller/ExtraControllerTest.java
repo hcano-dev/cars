@@ -3,6 +3,7 @@ package com.hcano.cars.controller;
 import com.hcano.cars.dto.ExtraRequestMother;
 import com.hcano.cars.dto.ExtraResponseMother;
 import com.hcano.cars.domain.shared.IdentifierMother;
+import com.hcano.cars.dto.brand.BrandPayload;
 import com.hcano.cars.dto.extra.ExtraEditPayload;
 import com.hcano.cars.dto.extra.ExtraPayload;
 import com.hcano.cars.utils.JsonMapperUtils;
@@ -31,6 +32,17 @@ public class ExtraControllerTest extends RequestTestCase {
     }
 
     @Test
+    public void return_an_empty_list_of_extras() throws Exception {
+        List<BrandPayload> response = List.of();
+
+        assertResponse(
+                ExtraController.URL,
+                HttpStatus.OK.value(),
+                JsonMapperUtils.mapToJson(response)
+        );
+    }
+
+    @Test
     public void return_an_existing_extra() throws Exception {
         String id = IdentifierMother.random();
         ExtraEditPayload request = ExtraRequestMother.random();
@@ -49,10 +61,10 @@ public class ExtraControllerTest extends RequestTestCase {
     @Test
     public void return_a_non_existing_extra() throws Exception {
         String id = IdentifierMother.random();
-        assertRequest(
-                HttpMethod.GET.name(),
+        assertResponse(
                 String.format("/extras/%s", id),
-                HttpStatus.PRECONDITION_FAILED.value()
+                HttpStatus.PRECONDITION_FAILED.value(),
+                ""
         );
     }
 
