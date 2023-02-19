@@ -34,11 +34,11 @@ public class PricePayload extends PayloadID {
     @JsonProperty(value = "end_date")
     private Date endDate;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     @JsonProperty(value = "created")
     private Date created;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     @JsonProperty(value = "modified")
     private Date modified;
 }
